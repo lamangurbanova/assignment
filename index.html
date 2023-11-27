@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/style.css" />
+
+    <!-- fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+
+
+    <header>
+        <div class="container">
+            <div class="row mx-0 align-items-center ">
+                <div class="col-2 d-flex justify-content-center">
+                    <div class="logo">
+                        <a href="index.html">Cassie</a>
+                        
+                    </div>
+                </div>
+                <div class="col-8">
+                    <nav>
+                        <ul class="list-unstyled d-flex justify-content-end m-0 p-0">
+                            <li class="mx-3"><a href="index.html" class="active">Home</a></li>
+                            <li class="mx-3"><a href="product.html">Product</a></li>
+                            <li class="mx-3"><a href="category.html">Category</a></li>
+                            <li class="mx-3"><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-2 d-flex">
+                    <div class="search mx-3">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        
+                    </div>
+                    <div class="cart">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <span>(0)</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="card ">
+            <img class="w-100 h-100 rounded-0" src="https://github.com/tech2etc/Build-and-Deploy-Ecommerce-Website/blob/main/img/hero4.png?raw=true" class="card-img" alt="...">
+            <div class="card-img-overlay d-flex flex-column justify-content-center align-items-baseline">
+              <h1 class="card-title">Super Value deals</h1>
+              <h1 class="card-title">On all products</h1>
+              <p class="card-text"><small>Lorem ipsum dolor sit.</small></p>
+              <button class="btn btn-shop">Shop now</button>
+            </div>
+          </div>
+    </section>
+
+    <section id="products">
+      <div class="container py-5 d-flex flex-column align-items-center">
+        <h1>Featured products</h1>
+        <div class=" products-con py-4 d-flex flex-wrap">
+          <div class="product">
+            <img class="w-100 " src="https://i.dummyjson.com/data/products/1/1.jpg" alt="">
+            <div class="des">
+              <span class="brand-name">apple</span>
+              <h3 class="title m-0">iPhone 9</h3>
+              <div class="star">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div class="d-flex justify-content-between align-items-center">
+                <del class="price">$78</del>
+                <p class="new-price m-0"></p>
+                <a href="#">
+                  <i class="fa-solid fa-shopping-cart"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          
+
+         
+        </div>
+
+
+        <div  id="pagination" class="pagination">
+          
+        </div>
+
+       
+      </div>
+        
+    </section>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>
