@@ -160,3 +160,50 @@ fetch("https://dummyjson.com/products")
     displayProducts(currentPage, data);
     updatePagination(currentPage, totalPageCount);
 });
+
+
+
+
+// Add this function to your app.js
+function filterByCategory() {
+  const categoryFilter = document.getElementById("categoryFilter");
+  const selectedCategory = categoryFilter.value;
+
+  // Filter products based on the selected category
+  const filteredProducts = productsData.products.filter(product => {
+    return selectedCategory === 'all' || product.category === selectedCategory;
+  });
+
+  // Update the total page count based on filtered products
+  totalPageCount = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  // Display the filtered products on the current page
+  displayProducts(currentPage, { products: filteredProducts });
+
+  // Update pagination based on the new total page count
+  updatePagination(currentPage, totalPageCount);
+}
+
+
+
+// Add this function to your app.js
+function searchProducts() {
+  const searchInput = document.getElementById("searchInput");
+  const searchTerm = searchInput.value.toLowerCase();
+
+  // Filter products based on the search term
+  const filteredProducts = productsData.products.filter(product => {
+    const title = product.title.toLowerCase();
+    return title.includes(searchTerm);
+  });
+
+
+  // Update the total page count based on filtered products
+  totalPageCount = Math.ceil(filteredProducts.length / itemsPerPage);
+
+  // Display the filtered products on the current page
+  displayProducts(currentPage, { products: filteredProducts });
+
+  // Update pagination based on the new total page count
+  updatePagination(currentPage, totalPageCount);
+}

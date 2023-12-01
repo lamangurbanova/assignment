@@ -59,28 +59,25 @@
       </div>
     </header>
 
-    <section id="hero">
-      <div class="card">
-        <img
-          class="w-100 h-100 rounded-0"
-          src="https://github.com/tech2etc/Build-and-Deploy-Ecommerce-Website/blob/main/img/hero4.png?raw=true"
-          class="card-img"
-          alt="..."
-        />
-        <div
-          class="card-img-overlay d-flex flex-column justify-content-center align-items-baseline"
-        >
-          <h1 class="card-title">Super Value deals</h1>
-          <h1 class="card-title">On all products</h1>
-          <p class="card-text"><small>Lorem ipsum dolor sit.</small></p>
-          <button class="btn btn-shop">Shop now</button>
-        </div>
-      </div>
-    </section>
-
     <section id="products">
       <div class="container py-5 d-flex flex-column align-items-center">
         <h1>Featured products</h1>
+
+        <!-- Add this section to your HTML -->
+        <div class="filter-section">
+          <label for="categoryFilter">Filter by Category:</label>
+          <select id="categoryFilter" onchange="filterByCategory()">
+            <option value="all">All Categories</option>
+            <option value="smartphones">Smartphones</option>
+            <option value="laptops">Laptops</option>
+            <option value="fragrances">Fragrances</option>
+            <option value="skincare">Skincare</option>
+            <option value="groceries">Groceries</option>
+            <option value="home-decoration">Home-decoration</option>
+            <!-- Add more options for other categories as needed -->
+          </select>
+        </div>
+
         <div class="products-con py-4 d-flex flex-wrap">
           <div class="product">
             <img
@@ -171,7 +168,6 @@
         </div>
       </section>
     </section>
-
 
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
