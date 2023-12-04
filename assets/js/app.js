@@ -11,11 +11,11 @@ function displayProducts(page, data) {
   for (let i = startIdx; i < endIdx && i < data.products.length; i++) {
     let product = data.products[i];
     obj += `
-            <div class="product">
+            <div class="product" onclick="showProductDetails(${product.id})">
                 <img class="w-100" src="${product.images[0]}" alt=""/>
                 <div class="des">
                     <span class="brand-name">${product.brand}</span>
-                    <h3 onclick="showProductDetails(${product.id})" class="title m-0">${product.title}</h3>
+                    <h3  class="title m-0">${product.title}</h3>
                     <div class="star">
                         <i class="fa-solid fa-star"></i>
                         <i class="fa-solid fa-star"></i>
@@ -95,31 +95,8 @@ function showProductDetails(productId) {
 function showProductList() {
   document.getElementById("products").style.display = "block";
   document.getElementById("productDetails").style.display = "none";
-  document.getElementById("cart").style.display = "none";
 }
 
-function addToCart(product) {
-  cart.push(product);
-  updateCart();
-}
-
-function updateCart() {
-  const cartItemsContainer = document.getElementById("cartItems");
-  cartItemsContainer.innerHTML = '';
-
-  cart.forEach(product => {
-    cartItemsContainer.innerHTML += `<li>${product.title} - $${product.price}</li>`;
-  });
-
-  // Show the cart section
-  document.getElementById("products").style.display = "none";
-  document.getElementById("productDetails").style.display = "none";
-  document.getElementById("cart").style.display = "block";
-
-  // Update the shopping cart icon with the number of items in the cart
-  const cartIcon = document.querySelector(".fa-basket-shopping");
-  cartIcon.setAttribute("data-count", cart.length.toString());
-}
 
 function updatePagination(currentPage, totalPages) {
   let paginationContainer = document.getElementById("pagination");
@@ -164,7 +141,7 @@ fetch("https://dummyjson.com/products")
 
 
 
-// Add this function to your app.js
+
 function filterByCategory() {
   const categoryFilter = document.getElementById("categoryFilter");
   const selectedCategory = categoryFilter.value;
@@ -186,24 +163,29 @@ function filterByCategory() {
 
 
 
-// Add this function to your app.js
 function searchProducts() {
   const searchInput = document.getElementById("searchInput");
   const searchTerm = searchInput.value.toLowerCase();
 
-  // Filter products based on the search term
-  const filteredProducts = productsData.products.filter(product => {
-    const title = product.title.toLowerCase();
+  // Get the currently displayed filtered products
+  const displayedProducts = Array.from(productsContainer.getElementsByClassName("product"));
+  
+  // Filter displayed products based on the search term
+  const filteredProducts = displayedProducts.filter(productElement => {
+    const title = productElement.querySelector(".title").innerText.toLowerCase();
     return title.includes(searchTerm);
   });
-
 
   // Update the total page count based on filtered products
   totalPageCount = Math.ceil(filteredProducts.length / itemsPerPage);
 
+  // Convert the filtered products to HTML strings
+  const filteredProductsHTML = filteredProducts.map(productElement => productElement.outerHTML);
+
   // Display the filtered products on the current page
-  displayProducts(currentPage, { products: filteredProducts });
+  productsContainer.innerHTML = filteredProductsHTML.slice(0, itemsPerPage).join('');
 
   // Update pagination based on the new total page count
   updatePagination(currentPage, totalPageCount);
 }
+
